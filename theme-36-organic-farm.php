@@ -25,74 +25,87 @@ ob_start();
     --surface-soft: #ffffff;
     --text: #1f2937;
     --muted: #6b7280;
-    --radius: 24px;
+    --radius: 20px;
     font-family: 'Cairo', 'Tajawal', system-ui, -apple-system, sans-serif;
-}
-
-.modern-template {
     color: var(--text);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12)), var(--surface);
-    border-radius: var(--radius);
+    background: var(--surface);
+    border-radius: calc(var(--radius) + 4px);
     padding: 10px;
 }
 
-.modern-template .hero-wrap {
-    background: radial-gradient(circle at top, rgba(22, 163, 74, 0.15), transparent 60%), #f0fdf4;
-    border-radius: var(--radius);
-    padding: 52px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 30px 60px rgba(2,6,23,0.5);
+.modern-template .landing-hero {
+    padding-bottom: 12px;
 }
 
-.modern-template h1,
-.modern-template h3,
-.modern-template h4,
-.modern-template h5 {
-    letter-spacing: -0.5px;
+.modern-template .hero-wrap {
+    background: linear-gradient(150deg, rgba(255,255,255,0.08), rgba(0,0,0,0.1)), var(--surface);
+    border-radius: var(--radius);
+    padding: 50px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 24px 40px rgba(2,6,23,0.35);
+}
+
+.modern-template h1 {
+    font-weight: 600; letter-spacing: 0.2px;
 }
 
 .modern-template .price-tag {
-    background: linear-gradient(120deg, var(--primary), var(--secondary));
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 14px;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent), var(--primary); color: #fff;
+    padding: 12px 22px;
+    border-radius: 999px;
     font-weight: 700;
-    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+.modern-template .badge {
+    background: var(--secondary); color: #0f172a;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-weight: 600;
 }
 
 .modern-template .feature-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
-    padding: 20px;
-    transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+    background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(255,255,255,0.18);
+    outline: 1px solid rgba(0,0,0,0.06); outline-offset: -6px;
+    border-radius: calc(var(--radius) - 2px);
+    padding: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .modern-template .feature-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 16px 30px rgba(2, 6, 23, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 26px rgba(2, 6, 23, 0.2);
 }
 
 .modern-template .gallery img {
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 20px 30px rgba(2, 6, 23, 0.35);
+    border-radius: calc(var(--radius) + 4px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 16px 28px rgba(2, 6, 23, 0.3);
+}
+
+.modern-template .gallery-placeholder {
+    border-radius: calc(var(--radius) + 4px);
+    border: 1px dashed rgba(255,255,255,0.2);
+    padding: 24px;
+    text-align: center;
+    color: var(--muted);
 }
 
 .modern-template .order-card {
     background: var(--surface-soft);
     border-radius: var(--radius);
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 20px 35px rgba(2, 6, 23, 0.35);
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 24px 40px rgba(2,6,23,0.35);
+}
+
+.modern-template .order-card h4 {
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .modern-template .order-card .form-control,
 .modern-template .order-card .form-select {
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 999px;
     color: var(--text);
     padding: 12px 14px;
 }
@@ -102,10 +115,10 @@ ob_start();
 }
 
 .modern-template .order-summary {
-    background: rgba(15, 23, 42, 0.65);
+    background: rgba(0,0,0,0.08);
     border-radius: 14px;
     padding: 16px;
-    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border: 1px dashed rgba(255,255,255,0.2);
 }
 
 .modern-template .summary-row {
@@ -120,36 +133,17 @@ ob_start();
 }
 
 .modern-template .btn-accent {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--secondary), var(--primary)); color: #fff; border-radius: 12px;
     border: none;
-    color: #fff;
     font-weight: 700;
-    border-radius: 14px;
     padding: 12px 18px;
-    box-shadow: 0 14px 24px rgba(0,0,0,0.25);
-}
-
-.modern-template .btn-accent:hover {
-    filter: brightness(1.05);
-}
-
-.modern-template .badge {
-    background: rgba(255, 255, 255, 0.15);
-    color: var(--text);
-    border-radius: 999px;
-    padding: 6px 12px;
-    font-weight: 600;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.2);
 }
 
 .modern-template .section-alt {
-    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.15));
+    background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.12);
     border-radius: var(--radius);
-    padding: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.modern-template .text-secondary {
-    color: var(--muted) !important;
+    padding: 38px;
 }
 
 .modern-template .section-title h3::after {
@@ -162,9 +156,16 @@ ob_start();
     background: linear-gradient(120deg, var(--primary), var(--secondary));
 }
 
+.modern-template .text-secondary {
+    color: var(--muted) !important;
+}
+
 @media (max-width: 991px) {
     .modern-template .hero-wrap {
         padding: 36px;
+    }
+    .modern-template .order-card {
+        padding: 22px;
     }
 }
 </style>
